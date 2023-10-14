@@ -50,7 +50,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://vaibhav:vaibhav1234@cluster0.9crbksi.mongodb.net/ImageUploader?retryWrites=true&w=majority"
+    process.env.MONGO_URI
   )
   .then(() => {
     app.listen(5000);

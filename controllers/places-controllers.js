@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const HttpError = require("../models/http-error");
 const { validationResult } = require("express-validator");
-const getCoordsForAddress = require("../utils/location");
 const Place = require("../models/place");
 const User = require("../models/user");
 const fs = require('fs');
@@ -59,19 +58,11 @@ const createNewPlace = async (req, res, next) => {
   }
   const { title, description, address } = req.body;
 
-  let coordinates;
-  try {
-    coordinates = await getCoordsForAddress(address);
-  } catch (error) {
-    return next(error);
-  }
-
   const createdPlace = await new Place({
     title,
     description,
     address,
     image: req.file.path,
-    location: coordinates,
     creator : req.userData.userId,
   });
 

@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     if (!token) {
       throw new Error("Authentication Failed");
     }
-    const decodedToken = jwt.verify(token, "superImportant_do_not_share"); //this also returns a string or object instead of boolen with the payload in it
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET); //this also returns a string or object instead of boolen with the payload in it
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (error) {

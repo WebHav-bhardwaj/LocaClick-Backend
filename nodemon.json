@@ -1,0 +1,8 @@
+{
+    "env":{
+        "MONGO_URI":"mongodb+srv://vaibhav:vaibhav1234@cluster0.9crbksi.mongodb.net/ImageUploader?retryWrites=true&w=majority",
+        "GEOCODER_PROVIDER":"mapquest",
+        "GEOCODER_API_KEY":"cj56coaIdbbrTBhiAprLi5jSAX2K2jD9",
+        "JWT_SECRET":"superImportant_do_not_share"
+    }
+}
